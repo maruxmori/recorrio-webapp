@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    font-family: 'Encode Sans', sans-serif;
+    background-color: #50B8B1;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.header-nav{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7em;
+}
+.nav-logo{
+    width: 10em;
+    margin-left: 3em;
+}
+.nav-list{
+    display: flex;
+    margin-right: 6em;
+}
+.nav-list li{
+    width: 5em;
+}
+.nav-list a{
+    color: #37BBED;
+    font-size: 1.2rem;
+}
+.tittle{
+    background-image: url(../img/wave-index.svg);
+    background-attachment:scroll;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 40vh;
+    margin-bottom: 2em;
+}
+
+.tittle-text{
+    margin-left: 3em;
+}
+h1{
+    color: #37BBED;
+    font-size: 5rem;
+}
+h1 span{
+    background: -webkit-linear-gradient(360deg, rgba(55,187,237,1) 0%, rgba(80,184,177,1) 74%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.container-maps iframe{
+    width: 100vw;
+    height: 50vh;
+}
+.container-info{
+    width: 100vw;
+    height: 50vh;
+}
+
+.info-img{
+    height: 70%;
+    overflow: hidden;
+}
+
+.info-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+}
+
+.info-text-button{
+    width: 6em;
+    text-align: center;
+    color: black;
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+.social-link{
+    height: 6em;
+    color: white;
+}
+
+.social-link ul{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.iconify{
+    font-size: 2em;
+}
+
+/*-- Responsive desktop --*/
+
+@media only screen and (min-width: 720px) {
+    .nav-logo{
+        margin-left: 6em;
+    }
+    .nav-list{
+        margin-right: 6em;
+    }
+    .tittle-text{
+        margin-left: 6em;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: row;
+    }
+    .container-maps iframe{
+        width: 50vw;
+        height: 100%;
+    }
+    .container-info{
+        width: 50vw;
+        background-color: white;
+    }
+    .social-link ul{
+        width: 20%;
+    }
+}
