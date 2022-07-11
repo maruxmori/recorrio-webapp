@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@font-face {
+    font-family: 'Encode-sans';
+    src: url(../font/EncodeSans-Bold.ttf);
+}
 
 *{
     margin: 0;
@@ -6,11 +9,14 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    cursor: url('../img/cursor-pointer.svg'), pointer;
 }
+
 
 body{
     font-family: 'Encode Sans', sans-serif;
     background-color: #50B8B1;
+    scroll-behavior: smooth;
 }
 
 img{
@@ -18,68 +24,180 @@ img{
     height: auto;
 }
 
+a:hover, button:hover{
+    cursor: url('../img/cursor-hover.svg'), pointer;   
+}
 .header-nav{
     background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 7em;
+    height: 7.5em;
 }
+
 .nav-logo{
     width: 10em;
-    margin-left: 3em;
 }
-.nav-list{
-    display: flex;
-    margin-right: 6em;
-}
-.nav-list li{
-    width: 5em;
-}
-.nav-list a{
+.logo-recorrio{
     color: #37BBED;
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 2rem;
+  
+}
+.logo-recorrio span{
+    background: -webkit-linear-gradient(360deg, rgba(55,187,237,1) 0%, #d7df23 74%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ulNavBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.ulNavBar li{
+    margin: 2rem;
+}
+.ulNavBar a{
+    color: white;
     font-size: 1.2rem;
 }
+.modal{
+    background-color: #50b8b1;
+    position: fixed;
+    z-index: 998;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    transition: ease-in-out .5s;
+    transform: translate(0,-100%);
+}
+.show{
+    transform: translate(0,0%);
+}
+
+.buttonMenu{
+    color: #50B8B1;
+    border: none;
+    background-color: white;
+    padding: 1vh;
+    border-radius: 50%;
+    font-size: 2em;
+    position: fixed;
+    z-index: 999;
+    top: 1vh;
+    right: 1vh;
+    display: flex;
+}
+
 .tittle{
-    background-image: url(../img/wave-index.svg);
+    background-image: url(../img/wave-dos.svg);
     background-attachment:scroll;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
-    height: 40vh;
     margin-bottom: 2em;
 }
 
 .tittle-text{
     margin-left: 3em;
+    color: white;
 }
-h1{
+.tittle-text h1{
     color: #37BBED;
-    font-size: 5rem;
+    font-size: 20vw;
+    font-weight: 900;
 }
-h1 span{
-    background: -webkit-linear-gradient(360deg, rgba(55,187,237,1) 0%, rgba(80,184,177,1) 74%);
+.tittle-text h1 span{
+    background: -webkit-linear-gradient(360deg, rgba(55,187,237,1) 0%, #d7df23 74%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+.tittle-text p{
+    margin-top: 6rem;
+    font-size: 1.5rem;
+}
 .container{
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: ease-in-out .5s;
+
+}
+.containerMaps{
+    width: 90vw;
+    height: 50vh;
+    margin-bottom: 2vh;
+}
+.mapaIndex{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.locationPuente img {
+    padding: 1rem;
+    border-radius: 10rem;
+    background-color: rgba(244, 245, 245, 0.95);
+    filter: drop-shadow(4px 4px 8px #83838485);
+    position: relative;
+    top: -12em;
+    left: 15em;
+    cursor: pointer;
+}
+.locationMuseo img{
+    padding: 1rem;
+    border-radius: 10rem;
+    background-color: rgba(244, 245, 245, 0.95);
+    filter: drop-shadow(4px 4px 8px #83838485);
+    position: relative;
+    top: -10em;
+    left: 10em;
+    cursor: pointer;
+}
+.location:hover{
+    transition: ease-in-out .2s;
     background-color: white;
-}
-.container-maps iframe{
-    width: 100vw;
-    height: 50vh;
-}
-.container-info{
-    width: 100vw;
-    height: 50vh;
+    filter: drop-shadow(4px 4px 4px #83838485);
+
 }
 
-.info-img{
-    height: 70%;
+#mensaje{
+    height: 100%;
+    padding: 2rem;
+    font-size: 1.5rem;
+}
+#museo{
+    transition: ease-in-out .5s;
+    background-image: url(`${this.path}img/museo-benito-quinquela.jpg`;);
+    background-size: cover;
+    height: 100%;
+}
+#puente{
+    transition: ease-in-out .5s;
+    background-image: url(`${this.path}img/puente-transbordador.jpg`;);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#museo:hover, #puente:hover{
+    transform: scale(1.1);
+}
+.containerInfo{
+    width: 90vw;
+    height: 50vh;
+    margin-bottom: 2vh;
     overflow: hidden;
+    transition: ease-in-out.5s;
+    position: relative;
 }
 
 .info-text{
@@ -87,57 +205,376 @@ h1 span{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 30%;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .info-text-button{
-    width: 6em;
+    padding: 0.5rem;
+    margin-top: 1rem;
     text-align: center;
+    background-color: white;
     color: black;
     border: solid 1px;
     border-radius: 10px;
+    z-index: 999;
 }
 
-.social-link{
+.info-text-button:hover {
+    cursor: url('../img/cursor-2.svg'), pointer;
+}
+
+footer{
+    background-color: #236a6771;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+ footer div{
+     text-align: center;
+     width: 80%;
+     font-weight: 100;
+     font-size: 0.9rem;
+ }
+.socialLink{
     height: 6em;
     color: white;
 }
 
-.social-link ul{
-    width: 50%;
+.socialLink ul{
     display: flex;
     justify-content: space-around;
 }
 .iconify{
     font-size: 2em;
+    margin: 1rem;
+}
+/* ------------ Lugares ----------- */
+#mainNosotros{
+    background-color: #d7df23;
+}
+.tittlePage {
+    color: white;
+    padding: 2rem;
 }
 
+.tittlePage h1{
+    font-size: 5rem;
+}
+.lugar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.lugarInfo{
+    background-color: white;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80vw;
+    height: 50vh;
+    margin-top: 10vh;
+    position: relative;
+}
+.infoImg{
+    width: 100%;
+}
+.lugarInfo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.lugarText{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background-color: white;
+    transition: ease-in-out.5s;
+}
+
+.lugarText:hover{
+    transition: ease-in-out.5s;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+}
+
+/*--- Contacto ----*/
+.grid-contacto{
+    display: grid;
+    grid-template-columns: repeat(20,1fr);
+    grid-template-rows: repeat(20,4rem);
+
+}
+#mainContacto{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.contacto{
+    grid-column-start: 3;
+    grid-column-end: 19;
+    grid-row-start: 1;
+    grid-row-end: 10;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.contacto-banner{
+    grid-column-start: 3;
+    grid-column-end: 19;
+    grid-row-start: 11;
+    grid-row-end: 20;
+    overflow: hidden;
+}
+
+.tittle-page-contacto{
+    padding: 1rem;
+}
+
+.tittle-page-contacto h1{
+    font-size: 5rem;
+}
+
+.contacto-banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+.divNombre, .divEmail, .divTextArea{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+.inputForm{
+    width: 80%;
+    height: 2rem;
+    margin-top: 0.5rem;
+    border: solid 2px white;
+    border-radius: 7px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.inputText{
+    width: 80%;
+    height: 8rem;
+    margin-top: 0.5rem;
+    border: solid 2px white;
+    border-radius: 7px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.form-item input:focus-visible{
+    border: solid #236a67;;
+}
+.form-item input, textarea{
+    margin-top: 0.5rem;
+    border: solid 2px white;
+    border-radius: 7px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.form-button{
+    margin: 1rem;
+    padding: 0.5rem;
+    background-color: #50B8B1;
+    color: white;
+    border: solid 2px white;
+    border-radius: 7px;
+}
 /*-- Responsive desktop --*/
 
 @media only screen and (min-width: 720px) {
-    .nav-logo{
-        margin-left: 6em;
+   .buttonMenu{
+        display: none;
     }
-    .nav-list{
-        margin-right: 6em;
+    .ulNavBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    }
+   .ulNavBar a{
+        color: #37BBED;
     }
     .tittle-text{
-        margin-left: 6em;
+        height: 30vw;
+    }
+    .tittle-text p {
+        color: white;
+        margin-top: 1.5rem;
+        margin-left: 3rem;
+        font-weight: 300;
+        font-size: 1.2rem;
+    }
+    .tittle-text h1{
+        font-size: 10rem;
+    }
+    .modal{
+        background-color: white;
+        position: static;
+        height: 100%;
+        transform: translate(0,0);
+    }
+    .container{
+        flex-direction: row;
+    }
+    .containerMaps{
+        width: 45vw;
+        height: 50vh;
+    }
+    .containerInfo{
+        width: 45vw;
+        height: 50vh;
+        background-color: white;
+    }
+    
+    .nosotros{
+        display: grid;
+        grid-template-columns: repeat(20,1fr);
+        grid-template-rows: repeat(30,2rem);
+        flex-direction: column;
+        color: white;
+        font-size: 150%;
+    }
+    .nosotrosImgUno{
+        grid-column-start: 2;
+        grid-column-end: 12;
+        grid-row-start: 1;
+        grid-row-end: 10;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .nosotrosTxtUno{
+        grid-column-start: 11;
+        grid-column-end: 20;
+        grid-row-start: 3;
+        grid-row-end: 9;
+        font-size: 4rem;
+        font-weight: 700;
+        background-color: #dbe16bde;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+    }
+    .nosotrosImgDos{
+        grid-column-start: 8;
+        grid-column-end: 20;
+        grid-row-start: 11;
+        grid-row-end: 20;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .nosotrosTxtDos{
+        grid-column-start: 2;
+        grid-column-end: 9;
+        grid-row-start: 13;
+        grid-row-end: 20;
+        font-size: 4rem;
+        font-weight: 700;
+        background-color: #dbe16bde;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+    }
+    .nosotrosImgTres{
+        grid-column-start: 2;
+        grid-column-end: 12;
+        grid-row-start: 21;
+        grid-row-end: 30;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .nosotrosTxtTres{
+        grid-column-start: 10;
+        grid-column-end: 20;
+        grid-row-start: 23;
+        grid-row-end: 30;
+        font-size: 4rem;
+        font-weight: 700;
+        background-color: #dbe16bde;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+    }
+    .lugar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .lugar-info{
+        background-color: white;
+        display: flex;
+        width: 45vw;
+        height: 50vh;
     }
 
-    .container{
+    .lugar-hover{
+        display: none;
+    }
+    .lugar-hover a{
+        color: black;
+    }
+    .grid-contacto{
+        display: grid;
+        grid-template-columns: repeat(20,1fr);
+        grid-template-rows: repeat(20,2rem);
+    }
+    .contacto{
+        grid-column-start: 2;
+        grid-column-end: 10;
+        grid-row-start: 2;
+        grid-row-end: 20;
+        display: flex;
+        flex-direction: column;
+        color: white;
+    }
+    
+    .contacto-banner{
+        grid-column-start: 11;
+        grid-column-end: 21;
+        grid-row-start: 1;
+        grid-row-end: 21;
+    }
+    footer{
+        display: flex;
+        flex-direction: row;
+        margin-top: 10vh;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .tittle-text{
         display: flex;
         flex-direction: row;
     }
-    .container-maps iframe{
-        width: 50vw;
-        height: 100%;
+    .tittle-text p {
+        color: #50B8B1;
+        margin-left: 5rem;
+        margin-right: 7rem;
+        font-weight: 300;
+        font-size: 1.5rem;
     }
-    .container-info{
-        width: 50vw;
-        background-color: white;
-    }
-    .social-link ul{
-        width: 20%;
+    .lugar-text{
+        width: 30%;
     }
 }
